@@ -1,0 +1,33 @@
+{
+  "name": "testClass",
+  "version": "0.1.0",
+  "summary": "A short description of testClass.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ymjin/testClass",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ymjin": "ymjin.mv@movements.kr"
+  },
+  "source": {
+    "git": "https://github.com/ymjin/testClass.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "testClass/Classes/**/*",
+  "dependencies": {
+    "RxCocoa": [
+
+    ],
+    "RxSwift": [
+
+    ],
+    "ExtensionCollection": [
+
+    ]
+  }
+}

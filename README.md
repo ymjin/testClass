@@ -22,7 +22,7 @@ pod 'testClass'
 
 ## Author
 
-ymjin, ymjin.mv@movements.kr
+ymjin, somethingjin@gmail.com
 
 ## License
 

@@ -1,10 +1,15 @@
 use_frameworks!
+source = 'https://github.com/ReactiveX/RxSwift.git'
+source = 'https://github.com/ymjin/ExtensionCollection.git'
 
 platform :ios, '10.0'
 
 target 'testClass_Example' do
   pod 'testClass', :path => '../'
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'ExtensionCollection'
+      
   target 'testClass_Tests' do
     inherit! :search_paths
 

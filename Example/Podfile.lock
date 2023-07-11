@@ -1,0 +1,48 @@
+PODS:
+  - ExtensionCollection (0.2.5)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - testClass (0.1.0):
+    - ExtensionCollection
+    - RxCocoa
+    - RxSwift
+
+DEPENDENCIES:
+  - ExtensionCollection
+  - FBSnapshotTestCase (~> 2.1.4)
+  - RxCocoa
+  - RxSwift
+  - testClass (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - ExtensionCollection
+    - FBSnapshotTestCase
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  testClass:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ExtensionCollection: f921be71f6a9e706542a2c3ef3d5d5623d9942a1
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  testClass: 1a0f80e0c702cf2bc514b06406d8a13a934769ef
+
+PODFILE CHECKSUM: 041c356b6f122f80507a5a80b4b87da3a6ec51bc
+
+COCOAPODS: 1.12.1

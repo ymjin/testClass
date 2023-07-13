@@ -1,5 +1,5 @@
 PODS:
-  - ExtensionCollection (0.2.5)
+  - ExtensionCollection (0.3.8)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
@@ -36,7 +36,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ExtensionCollection: f921be71f6a9e706542a2c3ef3d5d5623d9942a1
+  ExtensionCollection: fa34a67fd4da732675715b37b152495791f0e37d
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd

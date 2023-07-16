@@ -20,6 +20,8 @@ open class MessageAVC: BaseAVC {
     // MARK: - Variable
     public var message:String!
     public var messageColor:UIColor!
+    public var messageFont:UIFont!
+    public var messageFontSize:CGFloat!
     
     public var buttonTitleString:String!
     public var buttonBorderColor:UIColor!
@@ -27,7 +29,7 @@ open class MessageAVC: BaseAVC {
     public var buttonHighlightedColor:UIColor!
     public var buttonSelectedColor:UIColor!
     public var buttonDisabledColor:UIColor!
-    public var buttonBorder:CGFloat!
+    public var buttonBorderRadius:CGFloat!
     public var buttonBorderWidth:CGFloat!
     
     // MARK: - Life Cycle
@@ -40,23 +42,12 @@ open class MessageAVC: BaseAVC {
     override func initLayout() {
         super.initLayout()
 
-        if message != nil {
-            messageLabel.text = message
-        }
-        
-        if buttonTitleString != nil {
-            button.setTitle(buttonTitleString, for: .normal)
-        }
-        
-        button.changeBorder(width: 1, radius: 8, color: buttonBorderColor != nil ? buttonBorderColor : UIColor(red: 89/255, green: 92/255, blue: 245/255, alpha: 1.0))
-        
         if borderColor != nil {
             popupView.changeBorder(width: 0, radius: 16, color: borderColor)
         }
         
-        if messageColor != nil {
-            messageLabel.textColor = messageColor
-        }
+        setMessageAttribution()
+        setButtonAttribution()
     }
 
     /*
@@ -68,4 +59,47 @@ open class MessageAVC: BaseAVC {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setMessageAttribution() {
+        if message != nil {
+            messageLabel.text = message
+        }
+        
+        if messageFont != nil {
+            messageLabel.font = messageFont
+        }
+        else {
+            if messageColor != nil {
+                messageLabel.textColor = messageColor
+            }
+            
+            if messageFontSize != nil {
+                messageLabel.font = UIFont.systemFont(ofSize: messageFontSize)
+            }
+        }
+    }
+    
+    func setButtonAttribution() {
+        button.changeBorder(width: buttonBorderWidth != nil ? buttonBorderWidth : 1, radius: buttonBorderRadius != nil ? buttonBorderRadius : 8, color: buttonBorderColor != nil ? buttonBorderColor : UIColor(red: 89/255, green: 92/255, blue: 245/255, alpha: 1.0))
+        
+        if buttonTitleString != nil {
+            button.setTitle(buttonTitleString, for: .normal)
+        }
+        
+        if buttonNormalColor != nil {
+            button.setTitleColor(buttonNormalColor, for: .normal)
+        }
+        
+        if buttonHighlightedColor != nil {
+            button.setTitleColor(buttonNormalColor, for: .highlighted)
+        }
+        
+        if buttonSelectedColor != nil {
+            button.setTitleColor(buttonNormalColor, for: .selected)
+        }
+        
+        if buttonDisabledColor != nil {
+            button.setTitleColor(buttonNormalColor, for: .disabled)
+        }
+    }
 }

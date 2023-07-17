@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import ExtensionCollection
 
 @available(iOS 11.0, *)
 open class BaseVC:UIViewController {
@@ -173,40 +174,6 @@ open class BaseVC:UIViewController {
         view.frame.origin.y = 0
     }
     
-    
-    /// 단수 메시지 표시 팝업
-    /// - Parameters:
-    ///   - message: 표시할 메시지
-    ///   - titleString: 버튼 타이틀
-    ///   - completion: 버튼 터치 후 실행할 함수
-    public func showMessageAlert(message:String, titleString:String = "확인", completion: (() -> Void)? = nil) {
-        let alert = getAlertVC(type: .messageAVC) as! MessageAVC
-        alert.message = message
-        alert.buttonTitleString = titleString
-
-        present(alert, animated: true) {
-            alert.button.rx.tap.bind {
-                self.dismiss(animated: true) {
-                    if completion != nil {
-                        completion!()
-                    }
-                }
-            }.disposed(by: self.disposeBag)
-        }
-    }
-    
-    public func showMessageAlert(alert:MessageAVC, completion: (() -> Void)? = nil) {
-        present(alert, animated: true) {
-            alert.button.rx.tap.bind {
-                self.dismiss(animated: true) {
-                    if completion != nil {
-                        completion!()
-                    }
-                }
-            }.disposed(by: self.disposeBag)
-        }
-    }
-    
     /// 팝업 생성
     /// - Parameter type: 팝업 타입
     /// - Returns: 생성된 팝업
@@ -217,6 +184,62 @@ open class BaseVC:UIViewController {
         viewController!.modalTransitionStyle = .crossDissolve
         
         return viewController!
+    }
+    
+    /// stype01 팝업
+    /// - Parameters:
+    ///   - message: 표시할 메시지
+    ///   - titleString: 버튼 타이틀
+    ///   - completion: 버튼 터치 후 실행할 함수
+    public func showAVCStyle01(message:String, buttonTitleString:String = "확인", completion: (() -> Void)? = nil) {
+        let alert = getAlertVC(type: .style01) as! MessageAVC
+        alert.messageString = message
+        alert.buttonTitleString = buttonTitleString
+
+        present(alert, animated: true) {
+            alert.button.rx.tap.bind {
+                self.dismiss(animated: true) {
+                    if completion != nil {
+                        completion!()
+                    }
+                }
+            }.disposed(by: self.disposeBag)
+        }
+    }
+    
+    
+    /// style01 팝업
+    /// - Parameters:
+    ///   - alert: 팝업 객체
+    ///   - completion: 버튼 터치 후 실행 함수
+    public func showAVCStyle01(alert:MessageAVC, completion: (() -> Void)? = nil) {
+        present(alert, animated: true) {
+            alert.button.rx.tap.bind {
+                self.dismiss(animated: true) {
+                    if completion != nil {
+                        completion!()
+                    }
+                }
+            }.disposed(by: self.disposeBag)
+        }
+    }
+    
+    public func showAVCStyle03(icon:UIImage = "AVCIcon".toImage(), title:String, message:String, buttonTitleString:String = "확인", completion: (() -> Void)? = nil) {
+        let alert = getAlertVC(type: .style03) as! IconTitleMessageAVC
+        alert.iconImage = icon
+        alert.titleString = title
+        alert.messageString = message
+        alert.buttonTitleString = buttonTitleString
+
+        present(alert, animated: true) {
+            alert.button.rx.tap.bind {
+                self.dismiss(animated: true) {
+                    if completion != nil {
+                        completion!()
+                    }
+                }
+            }.disposed(by: self.disposeBag)
+        }
     }
 }
 

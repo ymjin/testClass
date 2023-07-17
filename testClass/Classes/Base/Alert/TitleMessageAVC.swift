@@ -1,23 +1,25 @@
 //
-//  BasicAVC.swift
+//  TitleMessageAVC.swift
 //  testClass
 //
-//  Created by Youngmin Jin on 2023/07/13.
+//  Created by Youngmin Jin on 2023/07/17.
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
-import ExtensionCollection
 
 @available(iOS 11.0, *)
-open class MessageAVC: BaseAVC {
+class TitleMessageAVC: BaseAVC {
 
-    // MARK: - IBOutlet
+    @IBOutlet var titleLabel:UILabel!
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var button:UIButton!
     
-    // MARK: - Variable
+    public var titleString:String!
+    public var titleColor:UIColor!
+    public var titleFont:UIFont!
+    public var titleFontSize:CGFloat!
+    public var titleAttributedString:NSAttributedString!
+    
     public var messageString:String!
     public var messageColor:UIColor!
     public var messageFont:UIFont!
@@ -34,13 +36,12 @@ open class MessageAVC: BaseAVC {
     public var buttonBorderWidth:CGFloat!
     public var buttonAttributedString:NSAttributedString!
     
-    // MARK: - Life Cycle
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
     override func initLayout() {
         super.initLayout()
 
@@ -48,6 +49,7 @@ open class MessageAVC: BaseAVC {
             popupView.changeBorder(width: 0, radius: 16, color: borderColor)
         }
         
+        setTitleAttribution()
         setMessageAttribution()
         setButtonAttribution()
     }
@@ -62,6 +64,29 @@ open class MessageAVC: BaseAVC {
     }
     */
     
+    func setTitleAttribution() {
+        if titleString != nil {
+            titleLabel.text = titleString
+        }
+        
+        if titleFont != nil {
+            titleLabel.font = titleFont
+        }
+        else {
+            if titleColor != nil {
+                titleLabel.textColor = titleColor
+            }
+            
+            if titleFontSize != nil {
+                titleLabel.font = UIFont.systemFont(ofSize: titleFontSize)
+            }
+        }
+        
+        if titleAttributedString != nil {
+            titleLabel.attributedText = titleAttributedString
+        }
+    }
+
     func setMessageAttribution() {
         if messageString != nil {
             messageLabel.text = messageString

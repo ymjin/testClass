@@ -11,8 +11,12 @@ import RxSwift
 import ExtensionCollection
 
 public enum AlertType:String {
-    case messageAVC = "MessageAVC"
-    case titleWithMessageAVC = "TitleWithMessageAVC"
+    /// message + one button
+    case style01 = "MessageAVC"
+    /// title + message + one button
+    case style02 = "TitleMessageAVC"
+    /// icon + title + message + one button
+    case style03 = "IconTitleMessageAVC"
     
     var name:String {
         return self.rawValue
